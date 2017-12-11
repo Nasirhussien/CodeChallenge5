@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Message Board</title>
+    <script src="vendors/angular.js"></script>
+    <script src="scripts/client.js"></script>
+    <script src="scripts/controllers/forum.controller.js"></script>
+</head>
+<body ng-app="MessagingApp" ng-controller="ForumController as vm">
+    <h1>HELLO</h1>
+    {{vm.message}}
+    <div class="container">
+    <form ng-submit="vm.submitForum(vm.forum)">
+                        <input type="text" placeholder="name" ng-model="vm.forum.name">
+                        <input type="text" placeholder="message" ng-model="vm.forum.message">
+                        <input type="submit">
+                    
+
+{{vm.forum}}
+    </form>
+
+    <div class="container">
+            <div id="messages" ng-repeat="message in vm.results.data">
+                <p>Name: {{message.name}}</p>
+                <p>Message: {{message.message}}</p>
+                <hr>
+            </div>
+        </div>
+</body>
+</html>
